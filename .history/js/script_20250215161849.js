@@ -6,15 +6,16 @@ window.addEventListener('load', function(){
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("DOMContentLoaded", function () {
     const savedTheme = localStorage.getItem("theme");
 
-    if (!savedTheme || savedTheme === "dark") {
+    if (!savedTheme) {
         document.body.classList.add("dark");
-        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+    } else if (savedTheme === "dark") {
+        document.body.classList.add("dark");
     }
 });
-
 
 
 window.ityped.init(document.querySelector('.iTyped'), {
