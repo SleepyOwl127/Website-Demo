@@ -1,3 +1,6 @@
+
+
+
 window.addEventListener('load', function(){
     document.querySelector('.preloader').classList.add('opacity-0');
     setTimeout(function(){
@@ -5,23 +8,14 @@ window.addEventListener('load', function(){
     }, 1000);
 });
 
-// Ensure Dark Mode is Enabled on Page Load
-window.addEventListener("DOMContentLoaded", function () {
-    const savedTheme = localStorage.getItem("theme");
 
-    // If no theme is set, default to dark mode
-    if (!savedTheme) {
-        document.body.classList.add("dark");
-        localStorage.setItem("theme", "dark");
-    } else if (savedTheme === "dark") {
-        document.body.classList.add("dark");
-    }
-});
 
 window.ityped.init(document.querySelector('.iTyped'), {
     strings: ["I'm a Web Developer", 'I Love Html5', 'I Love CSS3', 'I Love JS', 'I Love React'],
     loop: true
 });
+
+
 
 const filterContainer = document.querySelector('.portfolio-filter'),
     filterBtns = filterContainer.children,
@@ -50,6 +44,8 @@ const filterContainer = document.querySelector('.portfolio-filter'),
             }
         });
     }
+
+
 
 const lightbox = document.querySelector('.lightbox'),
     lightboxImg = lightbox.querySelector('.lightbox-img'),
@@ -96,11 +92,15 @@ function nextItem() {
     changeItem();
 }
 
+
+
 lightbox.addEventListener('click', function(event){
     if(event.target === lightboxClose || event.target === lightbox){
         toggleLightbox();
     }
 });
+
+
 
 const nav = document.querySelector('.nav'),
     navList = nav.querySelectorAll('li'),
@@ -127,20 +127,24 @@ for (let i = 0; i < totalNavList; i++) {
         if (window.innerWidth < 1200) {
             asideSectionTogglerBtn();
         }
+
     });
 }
 
-function addBackSectionClass(num) {
+function addBackSectionClass(num) 
+{
     allSection[num].classList.add('back-section');
 }
 
-function removeBackSectionClass() {
+function removeBackSectionClass() 
+{
     for (let i = 0; i < totalSection; i++) {
         allSection[i].classList.remove('back-section');
     }
 }
 
-function updateNav(element) {
+function updateNav(element) 
+{
     for (let i = 0; i < totalNavList; i++) {
         navList[i].querySelector('a').classList.remove('active');
         const target = element.getAttribute('href').split('#')[1];
@@ -158,11 +162,14 @@ document.querySelector('.hire-me').addEventListener('click', function(){
     removeBackSectionClass();
 });
 
-function showSection(element) {
+function showSection(element) 
+{
     for (let i = 0; i < totalSection; i++) {
         allSection[i].classList.remove('active');
     }
+
     const target = element.getAttribute('href').split('#')[1];
+
     document.querySelector('#'+target).classList.add('active');
 }
 
@@ -171,7 +178,8 @@ const navTogglerBtn = document.querySelector('.nav-toggler'),
 
 navTogglerBtn.addEventListener('click', asideSectionTogglerBtn);
 
-function asideSectionTogglerBtn() {
+function asideSectionTogglerBtn() 
+{
     aside.classList.toggle('open');
     navTogglerBtn.classList.toggle('open');
     for (let i = 0; i < totalSection; i++) {
